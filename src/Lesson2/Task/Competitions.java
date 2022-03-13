@@ -1,6 +1,7 @@
 package Lesson2.Task;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -21,7 +22,7 @@ import java.util.Random;
  */
 public class Competitions {
 
-    private final List<PartsRobot> dump = new ArrayList<>();
+    private final LinkedList<PartsRobot> dump = new LinkedList<>();
     Factory factory;
     Professor professor1;
     Professor professor2;
@@ -43,13 +44,7 @@ public class Competitions {
     }
 
     public synchronized PartsRobot removePartsRobotDump() {
-
-        if (!dump.isEmpty()) {
-            PartsRobot partsRobot = dump.get(0);
-            dump.remove(partsRobot);
-            return partsRobot;
-        } else return null;
-
+        return dump.pollLast();
     }
 
     public void start() {
